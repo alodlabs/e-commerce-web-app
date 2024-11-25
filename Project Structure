@@ -1,30 +1,21 @@
-ecommerce-app/
-│
+e-commerce-web-app/
 ├── app/
-│   ├── __init__.py       # Flask/Django app initialization
-│   ├── models.py         # Database models
-│   ├── routes.py         # Application routes
-│   ├── templates/        # HTML templates
-│   │   ├── index.html    # Home page
-│   │   ├── product.html  # Product details page
-│   │   ├── cart.html     # Shopping cart page
-│   │   ├── admin.html    # Admin dashboard
-│   └── static/           # CSS, JS, and image files
+│   ├── __init__.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── product.html
+│   │   ├── admin.html
+│   │   └── chat.html
+│   └── static/
 │       ├── css/
+│       │   └── style.css
 │       ├── js/
+│       │   └── script.js
 │       └── images/
-│
-├── requirements.txt      # Python dependencies
-├── config.py             # App configuration
-├── run.py                # Start the app
-└── README.md             # Project documentation
-
-
-static/
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-└── images/
-    └── placeholder.png
-
+│           └── placeholder.png
+├── config.py
+├── requirements.txt
+└── run.py
