@@ -19,4 +19,8 @@ def create_app():
         # Create database tables
         db.create_all()
 
+def handle_message(msg):
+    print(f"Message: {msg}")
+    socketio.emit('message', msg, broadcast=True)
+    
     return app
