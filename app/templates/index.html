@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-
-</head>
-<body>
-    <h1>Welcome to My Shop</h1>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h2>Our Products</h2>
     <div class="products">
         {% for product in products %}
         <div class="product">
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-            <p>Price: ${{ product.price }}</p>
-            <p>Stock: {{ product.stock }}</p>
+            <h3>{{ product.name }}</h3>
             <img src="{{ product.image_url }}" alt="{{ product.name }}" width="200">
-            <form action="/cart" method="POST">
-                <input type="hidden" name="product_id" value="{{ product.id }}">
-                <button type="submit">Add to Cart</button>
-            </form>
+            <p>Price: ${{ product.price }}</p>
+            <a href="{{ url_for('main.product_detail', product_id=product.id) }}">View Details</a>
         </div>
         {% endfor %}
     </div>
-    <a href="/cart">Go to Cart</a>
-</body>
-</html>
+{% endblock %}
