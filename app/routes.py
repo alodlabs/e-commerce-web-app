@@ -33,3 +33,8 @@ def cart():
     if request.method == "GET":
         return render_template("cart.html")
     # Handle checkout logic
+
+@main_bp.route("/product/<int:product_id>")
+def product_detail(product_id):
+    product = Product.query.get_or_404(product_id)
+    return render_template("product.html", product=product)
