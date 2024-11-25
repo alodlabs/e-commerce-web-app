@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Manage Products</h2>
+    <form action="/admin/add" method="POST">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <input type="number" name="price" placeholder="Price" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="url" name="image_url" placeholder="Image URL" required>
+        <button type="submit">Add Product</button>
+    </form>
+    <div class="products">
+        {% for product in products %}
+        <div class="product">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <p>Stock: {{ product.stock }}</p>
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" width="200">
+            <form action="/admin/delete/{{ product.id }}" method="POST">
+                <button type="submit">Remove Product</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
