@@ -18,3 +18,13 @@ ecommerce-app/
 ├── config.py             # App configuration
 ├── run.py                # Start the app
 └── README.md             # Project documentation
+
+
+static/
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+└── images/
+    └── placeholder.png
+
